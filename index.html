@@ -554,7 +554,7 @@ function removePlayer(name){var c=canon(name).toLowerCase();if(ROSTER.hidden.ind
 function restoreHidden(low){ROSTER.hidden=ROSTER.hidden.filter(function(x){return x!==low;});saveRoster();openRoster();}
 
 /* ================= SHARE / NAV ================= */
-function shareLink(){var url=location.origin+location.pathname+"?s="+(S?S.id:"");if(navigator.share)navigator.share({title:"Badminton Social",url:url}).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){alert("Link copied:\n"+url);},function(){prompt("Copy:",url);});else prompt("Copy:",url);}
+function shareLink(){var url=location.origin+location.pathname+"?s="+(S?S.id:"");if(navigator.share)navigator.share({title:"Kestrel Badminton (Kitchener) - Seeding Games",url:url}).catch(function(){});else if(navigator.clipboard)navigator.clipboard.writeText(url).then(function(){alert("Link copied:\n"+url);},function(){prompt("Copy:",url);});else prompt("Copy:",url);}
 function getParam(k){var m=new RegExp("[?&]"+k+"=([^&]+)").exec(location.search);return m?decodeURIComponent(m[1]):null;}
 function setUrl(id){if(history.replaceState)history.replaceState(null,"",location.pathname+"?s="+id);}
 function goHome(){if(unsub){unsub();unsub=null;}S=null;if(history.replaceState)history.replaceState(null,"",location.pathname);show("home");setStatus("home",ONLINE?"":"Offline mode — add Firebase config for live sharing.");}
